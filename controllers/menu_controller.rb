@@ -53,11 +53,11 @@ class MenuController
    def find_entry_by_num
        puts "Enter the Entry  number: " 
        entry_num = gets.to_i
-       puts "Num = " + entry_num.to_s
        entry = address_book.entries.fetch(entry_num - 1, "none")
-       if entry == "none"
+       if entry == "none" || entry_num == 0
           system "clear"
-          puts "Sorry, that is not a valid entry"
+          puts "Sorry, that is not a valid entry, please try again."
+          find_entry_by_num
        else
            system "clear"
            puts entry.to_s
